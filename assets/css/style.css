@@ -1,349 +1,142 @@
 /* =========================
-   DAMmix Global Styles
+   Global Styles
    ========================= */
-
 :root {
   --black: #0b0f14;
   --red: #c1121f;
   --gray: #8a8f98;
   --light-gray: #f3f4f6;
   --white: #ffffff;
-  --sidebar-width: 260px;
   --radius: 12px;
+  --transition: 0.3s ease;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-  background: var(--white);
-  color: var(--black);
-  line-height: 1.6;
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; margin:0; padding:0; }
+html, body { font-family:"Inter","Helvetica Neue",Arial,sans-serif; background: var(--white); color: var(--black); line-height:1.6; scroll-behavior: smooth; }
+img { max-width:100%; display:block; border-radius:6px; }
+a { text-decoration:none; color: inherit; }
+h1,h2,h3 { margin-bottom:12px; }
+h1 { font-size:2.6rem; }
+h2 { font-size:2rem; margin-top:24px; }
+h3 { font-size:1.2rem; }
+p.lead { font-size:1.1rem; color:#333; margin-bottom:16px; }
 
 /* =========================
    Layout
    ========================= */
-
-.layout {
-  display: flex;
-  min-height: 100vh;
-}
-
+body { display:flex; }
+.layout { display:flex; width:100%; }
 aside {
-  width: var(--sidebar-width);
+  position:fixed;
+  left:-280px;
+  top:0;
+  width:280px;
+  height:100vh;
   background: var(--black);
   color: var(--white);
-  padding: 28px 22px;
-  position: fixed;
-  height: 100vh;
+  padding:28px 20px;
+  transition: left var(--transition);
+  z-index:1000;
+  overflow-y:auto;
 }
+aside.active { left:0; }
+aside .brand { display:flex; align-items:center; gap:12px; margin-bottom:32px; }
+aside .brand img { width:36px; }
+aside .brand span { font-weight:700; letter-spacing:2px; font-size:1.2rem; }
+aside nav ul { list-style:none; }
+aside nav li { margin-bottom:18px; }
+aside nav a { color: var(--gray); font-weight:500; display:block; transition: color var(--transition); }
+aside nav a:hover, aside nav a.active { color: var(--white); }
+
+.topbar {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:60px;
+  background: var(--black);
+  color:var(--white);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
+  z-index:1001;
+}
+.topbar .hamburger { cursor:pointer; font-size:1.8rem; }
+.topbar .topbar-title { font-weight:700; letter-spacing:1px; font-size:1.3rem; }
 
 main {
-  margin-left: var(--sidebar-width);
-  padding: 60px 70px;
-  width: calc(100% - var(--sidebar-width));
+  margin-left:0;
+  flex:1;
+  padding:100px 40px 60px 40px;
+  transition: margin-left var(--transition);
 }
+aside.active ~ main { margin-left:280px; }
 
 /* =========================
-   Sidebar
+   Reveal Animations
    ========================= */
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 48px;
-}
-
-.brand img {
-  width: 36px;
-}
-
-.brand span {
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-nav ul {
-  list-style: none;
-}
-
-nav li {
-  margin-bottom: 18px;
-}
-
-nav a {
-  color: var(--gray);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-nav a:hover,
-nav a.active {
-  color: var(--white);
-}
-
-/* =========================
-   Typography
-   ========================= */
-
-h1 {
-  font-size: 3rem;
-  margin-bottom: 16px;
-}
-
-h2 {
-  font-size: 2.1rem;
-  margin-bottom: 22px;
-}
-
-h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-p {
-  color: #333;
-}
-
-.lead {
-  font-size: 1.15rem;
-  max-width: 720px;
-  color: #444;
-}
-
-.small {
-  font-size: 0.9rem;
-  color: var(--gray);
-}
-
-/* =========================
-   Sections
-   ========================= */
-
-section {
-  margin-bottom: 90px;
-}
-
-/* =========================
-   Cards & Grids
-   ========================= */
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 26px;
-}
-
-.card {
-  background: var(--light-gray);
-  padding: 28px;
-  border-radius: var(--radius);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
-}
-
-/* =========================
-   Product Cards
-   ========================= */
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 34px;
-}
-
-.product-card {
-  background: var(--white);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 35px rgba(0,0,0,0.06);
-  padding: 26px;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 50px rgba(0,0,0,0.1);
-}
-
-.product-card img {
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 18px;
-}
-
-/* =========================
-   Media Rows
-   ========================= */
-
-.media-row {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 28px;
-}
-
-.media-row img {
-  width: 100%;
-  border-radius: var(--radius);
-}
-
-/* =========================
-   Tables
-   ========================= */
-
-.table-wrap {
-  overflow-x: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: var(--white);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-th, td {
-  padding: 18px;
-  text-align: left;
-}
-
-thead {
-  background: var(--black);
-  color: var(--white);
-}
-
-tbody tr:nth-child(even) {
-  background: var(--light-gray);
-}
-
-.logo-sm {
-  width: 48px;
-  vertical-align: middle;
-  margin-right: 10px;
-}
-
-/* =========================
-   Stress Test Meters
-   ========================= */
-
-.score {
-  position: relative;
-}
-
-.meter {
-  height: 6px;
-  background: #ddd;
-  border-radius: 3px;
-  overflow: hidden;
-  margin: 12px 0;
-}
-
-.meter span {
-  display: block;
-  height: 100%;
-  background: var(--red);
-}
-
-/* =========================
-   Color Swatches
-   ========================= */
-
-.color-row {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.color-swatch {
-  padding: 20px;
-  border-radius: var(--radius);
-  color: var(--white);
-  min-width: 150px;
-  font-weight: 600;
-}
-
-.color-swatch.gray { background: var(--gray); }
-.color-swatch.red { background: var(--red); }
-.color-swatch.dark { background: var(--black); }
-.color-swatch.white {
-  background: var(--white);
-  color: var(--black);
-  border: 1px solid #ddd;
-}
+.reveal { opacity:0; transform:translateY(40px); transition: all 0.8s ease; }
+.reveal.active { opacity:1; transform:translateY(0); }
 
 /* =========================
    Buttons
    ========================= */
+.btn { display:inline-block; padding:10px 22px; background: var(--black); color: var(--white); border-radius:40px; font-weight:600; transition: all 0.3s ease; margin-top:10px; }
+.btn:hover { background: var(--red); transform:translateY(-2px); }
 
-.btn {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 12px 22px;
-  background: var(--black);
-  color: var(--white);
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
+/* =========================
+   Image Strips / Media Rows
+   ========================= */
+.image-strip, .media-row { display:flex; gap:16px; overflow-x:auto; padding-bottom:8px; }
+.image-strip img, .media-row img { flex-shrink:0; border-radius:var(--radius); max-height:240px; object-fit:cover; }
 
-.btn:hover {
-  background: var(--red);
-  transform: translateY(-2px);
+/* =========================
+   Grids / Cards
+   ========================= */
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:26px; }
+.card, .product-card { background: var(--light-gray); padding:22px; border-radius:var(--radius); transition: transform var(--transition), box-shadow var(--transition); cursor:default; }
+.card:hover, .product-card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(0,0,0,0.08); }
+
+/* =========================
+   Tables
+   ========================= */
+.table-wrap { overflow-x:auto; margin-top:24px; }
+table { width:100%; border-collapse:collapse; min-width:800px; }
+th,td { padding:14px 16px; text-align:left; border-bottom:1px solid #ddd; }
+th { background:var(--black); color:var(--white); }
+tbody tr:nth-child(even){ background:var(--light-gray); }
+.logo-sm { width:72px; vertical-align:middle; margin-right:12px; }
+
+/* =========================
+   Expandable / Read More
+   ========================= */
+.expandable { max-height:120px; overflow:hidden; position:relative; transition:max-height 0.5s ease; }
+.expandable.expanded { max-height:2000px; }
+.expandable::after {
+  content:'';
+  position:absolute;
+  bottom:0; left:0; width:100%; height:40px;
+  background: linear-gradient(rgba(243,244,246,0), var(--light-gray));
+  pointer-events:none;
+  transition: opacity 0.3s;
 }
+.expandable.expanded::after { opacity:0; }
+
+/* =========================
+   Stress Meters
+   ========================= */
+.meter { height:12px; background:#ddd; border-radius:6px; overflow:hidden; margin:10px 0; }
+.meter span { display:block; height:100%; background: var(--red); width:0; transition:width 1s ease; }
 
 /* =========================
    Footer
    ========================= */
-
-footer {
-  border-top: 1px solid #e5e5e5;
-  padding-top: 28px;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* =========================
-   Reveal Animation
-   ========================= */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
+footer { text-align:center; border-top:1px solid #ddd; padding:24px 0; font-size:0.9rem; color:#666; }
 
 /* =========================
    Responsive
    ========================= */
-
-@media (max-width: 900px) {
-  aside {
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
-
-  main {
-    margin-left: 0;
-    width: 100%;
-    padding: 40px 24px;
-  }
-  }
+@media (max-width:900px){
+  main{ padding:100px 24px 60px 24px; }
+        }
