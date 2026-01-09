@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DAMmix | Visual Identity System</title>
+  <title>DAMmix | Identity System</title>
   <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
-
 <body>
-<div class="layout">
 
-  <!-- SIDEBAR -->
-  <aside>
+  <div class="topbar">
+    <div class="hamburger">&#9776;</div>
+    <div class="topbar-title">DAMmix</div>
+  </div>
+
+  <aside id="sidebar">
     <div class="brand">
-      <img src="assets/images/logo-icon.png" alt="DAMmix Icon">
+      <img src="assets/image/logo-icon.png" alt="DAMmix Icon">
       <span>DAMMIX</span>
     </div>
     <nav>
@@ -29,118 +31,31 @@
     </nav>
   </aside>
 
-  <!-- MAIN -->
+  <div id="overlay"></div>
+
   <main>
-
     <section class="reveal">
-      <h1>Visual Identity System</h1>
-      <p class="lead">
-        The DAMmix identity is engineered, not decorated.
-        Every element exists to communicate precision, authority,
-        and controlled performance.
-      </p>
-    </section>
+      <h1>Identity System</h1>
+      <p class="lead">DAMmix visual identity emphasizes technical authority, minimalism, and structural precision.</p>
 
-    <section class="reveal">
-      <h2>Primary Logo</h2>
-      <div class="media-row">
-        <img src="assets/images/logo-primary.png" alt="Primary Logo">
-        <img src="assets/images/logo-dark.png" alt="Dark Background Logo">
-        <img src="assets/images/logo-light.png" alt="Light Background Logo">
-      </div>
-    </section>
-
-    <section class="reveal">
-      <h2>Symbol Logic</h2>
       <div class="grid">
-        <div class="card">
-          <h3>Forward Check</h3>
-          <p>
-            Represents laboratory verification, approval, and scientific accuracy.
-            The form never stops—signifying continuity under pressure.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Interruption Line</h3>
-          <p>
-            A red rupture line symbolizes limits: seismic stress, formulation risk,
-            and unpredictable site variables.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Breakthrough Geometry</h3>
-          <p>
-            The check mark cuts through resistance without deviation, expressing
-            resilience engineered through chemistry.
-          </p>
-        </div>
+        <div class="card"><img src="assets/image/logo-primary.png" alt="Primary Logo"><p>Primary Logo</p></div>
+        <div class="card"><img src="assets/image/logo-monochrome.png" alt="Monochrome Logo"><p>Monochrome Version</p></div>
+        <div class="card"><img src="assets/image/logo-negative.png" alt="Negative Logo"><p>Negative Version</p></div>
+        <div class="card"><img src="assets/image/logo-grid.png" alt="Logo Grid"><p>Logo Grid</p></div>
       </div>
-    </section>
 
-    <section class="reveal">
-      <h2>Typography</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Primary Typeface</h3>
-          <p>Inter / Helvetica Now / SF Pro</p>
-          <p class="small">Used for headings, logotype, navigation</p>
-        </div>
-        <div class="card">
-          <h3>Secondary Typeface</h3>
-          <p>IBM Plex Sans / Source Sans 3</p>
-          <p class="small">Used for body text and technical documentation</p>
-        </div>
-        <div class="card">
-          <h3>Numerals</h3>
-          <p>Tabular figures enabled</p>
-          <p class="small">Ensures precision in technical data sheets</p>
-        </div>
+      <div class="expandable" id="identity-details">
+        <p>The geometric icon can be used independently as a subtle branding element in documents, machinery, and packaging. The typographic logotype balances the icon, creating a cohesive, professional identity. Colors, spacing, and proportions are standardized to maintain visual consistency across all applications.</p>
       </div>
-    </section>
-
-    <section class="reveal">
-      <h2>Color System</h2>
-      <div class="color-row">
-        <div class="color-swatch dark">#0B0F14<br>Structural Black</div>
-        <div class="color-swatch red">#C1121F<br>Limit Red</div>
-        <div class="color-swatch gray">#8A8F98<br>Technical Gray</div>
-        <div class="color-swatch white">#FFFFFF<br>Engineering White</div>
-      </div>
-    </section>
-
-    <section class="reveal">
-      <h2>Do & Don’t</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Do</h3>
-          <ul>
-            <li>Maintain clear space</li>
-            <li>Use on neutral backgrounds</li>
-            <li>Scale proportionally</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Don’t</h3>
-          <ul>
-            <li>Distort geometry</li>
-            <li>Add effects or shadows</li>
-            <li>Change color meanings</li>
-          </ul>
-        </div>
-      </div>
+      <a href="#" class="btn expand-btn" data-target="identity-details">Read More</a>
     </section>
 
     <footer>
-      <p>
-        <strong>DAMmix Construction Chemicals</strong><br>
-        www.dammix.com · info@dammix.com · +251 911 193 605
-      </p>
+      <p><strong>DAMmix Construction Chemicals</strong><br>www.dammix.com · info@dammix.com · +251 911 193 605</p>
     </footer>
-
   </main>
 
-</div>
-
-<script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
-  </html>
+</html>
