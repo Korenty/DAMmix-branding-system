@@ -3,23 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DAMmix | Brand Narrative</title>
+  <title>DAMmix | Brand Philosophy</title>
   <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
-
 <body>
-<div class="layout">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="hamburger">&#9776;</div>
+    <div class="topbar-title">DAMmix</div>
+  </div>
 
   <!-- SIDEBAR -->
-  <aside>
+  <aside id="sidebar">
     <div class="brand">
-      <img src="assets/images/logo-icon.png" alt="DAMmix Icon">
+      <img src="assets/image/logo-icon.png" alt="DAMmix Icon">
       <span>DAMMIX</span>
     </div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="brand.html">Brand</a></li>
+        <li><a href="brand.html" class="active">Brand</a></li>
         <li><a href="identity.html">Identity</a></li>
         <li><a href="products.html">Products</a></li>
         <li><a href="competitors.html">Competitors</a></li>
@@ -29,68 +33,30 @@
     </nav>
   </aside>
 
-  <!-- MAIN CONTENT -->
+  <div id="overlay"></div>
+
   <main>
-
     <section class="reveal">
-      <h1>Brand Narrative</h1>
-      <p class="lead">
-        DAMmix is not named after a structure. It is named after responsibility.
-        The name represents the founders’ accountability for every formulation,
-        every test, and every performance outcome on site.
-      </p>
-    </section>
+      <h1>Our Brand Philosophy</h1>
+      <div class="expandable" id="brand-philosophy">
+        <p>DAMmix represents a laboratory-driven approach to construction chemicals, designed to overcome structural constraints, environmental stresses, and material uncertainties at scale. Our name reflects the founders’ initials while signaling innovation and technical mastery.</p>
+        <p>Our branding is structured to convey precision, authority, and reliability. Every visual element, from the geometric icon to the logotype, reinforces our technical expertise and trustworthiness in the construction industry.</p>
+        <p>The “Build Without Limits” philosophy embodies our approach: solving problems that others cannot, innovating beyond conventional methods, and delivering solutions that maintain structural integrity under the most challenging conditions.</p>
+      </div>
+      <a href="#" class="btn expand-btn" data-target="brand-philosophy">Read More</a>
 
-    <section class="reveal">
-      <div class="grid">
-        <div class="card">
-          <h3>DAM</h3>
-          <p>
-            Derived from the founders’ initials, DAM symbolizes human ownership
-            behind engineering decisions. It shifts the meaning from static
-            infrastructure to deliberate authorship.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>The Red Line</h3>
-          <p>
-            The red line represents constraints—seismic forces, environmental
-            unpredictability, material limits, and real-world stress conditions
-            that challenge construction projects.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>The Check Mark</h3>
-          <p>
-            The check mark continues forward through disruption, symbolizing
-            laboratory-validated precision that advances regardless of obstacles.
-          </p>
-        </div>
+      <div class="image-strip">
+        <img src="assets/image/logo-primary.png" alt="DAMmix Primary Logo">
+        <img src="assets/image/logo-monochrome.png" alt="DAMmix Monochrome Logo">
+        <img src="assets/image/logo-grid.png" alt="DAMmix Logo Grid">
       </div>
     </section>
 
-    <section class="reveal">
-      <h2>Build Without Limits</h2>
-      <p class="lead">
-        DAMmix exists to transform unknown variables into measurable performance.
-        Through in-house laboratories, project-specific formulation, and scientific
-        rigor, limitations are converted into controlled engineering parameters.
-      </p>
-    </section>
-
     <footer>
-      <p>
-        <strong>DAMmix Construction Chemicals</strong><br>
-        www.dammix.com · info@dammix.com · +251 911 193 605
-      </p>
+      <p><strong>DAMmix Construction Chemicals</strong><br>www.dammix.com · info@dammix.com · +251 911 193 605</p>
     </footer>
-
   </main>
 
-</div>
-
-<script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
