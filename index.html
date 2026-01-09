@@ -3,373 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DAMmix | Brand Identity & Products</title>
-  <style>
-    /* =========================
-       Global Styles
-       ========================= */
-    :root {
-      --black: #0b0f14;
-      --red: #c1121f;
-      --gray: #8a8f98;
-      --light-gray: #f3f4f6;
-      --white: #ffffff;
-      --radius: 12px;
-      --transition: 0.3s ease;
-    }
-
-    * { box-sizing: border-box; margin:0; padding:0; }
-    html, body { font-family:"Inter","Helvetica Neue",Arial,sans-serif; background: var(--white); color: var(--black); line-height:1.6; scroll-behavior: smooth; }
-    img { max-width:100%; display:block; border-radius:6px; }
-    a { text-decoration:none; color: inherit; }
-    h1,h2,h3 { margin-bottom:12px; }
-    h1 { font-size:2.6rem; }
-    h2 { font-size:2rem; margin-top:24px; }
-    h3 { font-size:1.2rem; }
-
-    p.lead { font-size:1.1rem; color:#333; margin-bottom:16px; }
-
-    /* =========================
-       Layout
-       ========================= */
-    body { display:flex; flex-direction:column; }
-    .topbar {
-      position: fixed; top:0; left:0; width:100%; height:60px; background: var(--black); color:var(--white); display:flex; align-items:center; justify-content:space-between; padding:0 20px; z-index:1000;
-    }
-    .topbar .hamburger { cursor:pointer; font-size:1.8rem; }
-    .sidebar {
-      position: fixed; top:0; left:-280px; width:280px; height:100vh; background: var(--black); color: var(--white); padding:28px 20px; transition: left var(--transition); overflow-y:auto; z-index:1001;
-    }
-    .sidebar.active { left:0; }
-    .sidebar .brand { display:flex; align-items:center; gap:12px; margin-bottom:32px; }
-    .sidebar .brand img { width:36px; }
-    .sidebar .brand span { font-weight:700; letter-spacing:2px; font-size:1.2rem; }
-    .sidebar nav ul { list-style:none; }
-    .sidebar nav li { margin-bottom:18px; }
-    .sidebar nav a { color: var(--gray); font-weight:500; display:block; transition: color var(--transition); }
-    .sidebar nav a:hover, .sidebar nav a.active { color: var(--white); }
-
-    main { margin-top:60px; padding:80px 40px; max-width: 1280px; margin-left:auto; margin-right:auto; }
-
-    /* =========================
-       Sections & Reveal
-       ========================= */
-    section { margin-bottom:80px; }
-    .reveal { opacity:0; transform:translateY(40px); transition: all 0.8s ease; }
-    .reveal.active { opacity:1; transform:translateY(0); }
-
-    /* =========================
-       Cards & Grids
-       ========================= */
-    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:26px; }
-    .card {
-      background: var(--light-gray); padding:22px; border-radius:var(--radius);
-      transition: transform var(--transition), box-shadow var(--transition);
-      cursor:default;
-    }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 14px 40px rgba(0,0,0,0.08); }
-
-    /* =========================
-       Buttons
-       ========================= */
-    .btn { display:inline-block; padding:10px 22px; background: var(--black); color: var(--white); border-radius:40px; font-weight:600; transition: all 0.3s ease; margin-top:10px; }
-    .btn:hover { background: var(--red); transform:translateY(-2px); }
-
-    /* =========================
-       Product Cards
-       ========================= */
-    .product-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:34px; }
-    .product-card img { margin-bottom:14px; border-radius:8px; }
-
-    /* =========================
-       Media Rows
-       ========================= */
-    .media-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; margin-top:20px; }
-    .media-row img { border-radius:var(--radius); }
-
-    /* =========================
-       Tables
-       ========================= */
-    .table-wrap { overflow-x:auto; margin-top:24px; }
-    table { width:100%; border-collapse:collapse; min-width:800px; }
-    th,td { padding:14px 16px; text-align:left; border-bottom:1px solid #ddd; }
-    th { background:var(--black); color:var(--white); }
-    tbody tr:nth-child(even){ background:var(--light-gray); }
-    .logo-sm { width:64px; vertical-align:middle; margin-right:12px; }
-
-    /* =========================
-       Stress Meters
-       ========================= */
-    .meter { height:12px; background:#ddd; border-radius:6px; overflow:hidden; margin:10px 0; }
-    .meter span { display:block; height:100%; background: var(--red); width:0; transition:width 1s ease; }
-
-    /* =========================
-       Expandable content
-       ========================= */
-    .expandable { max-height: 120px; overflow:hidden; position:relative; transition:max-height 0.5s ease; }
-    .expandable.expanded { max-height:2000px; }
-    .expandable::after {
-      content:'';
-      position:absolute; bottom:0; left:0; width:100%; height:40px;
-      background: linear-gradient(rgba(243,244,246,0), var(--light-gray));
-      pointer-events:none;
-      transition: opacity 0.3s;
-    }
-    .expandable.expanded::after { opacity:0; }
-
-    /* =========================
-       Footer
-       ========================= */
-    footer { text-align:center; border-top:1px solid #ddd; padding:24px 0; font-size:0.9rem; color:#666; }
-
-    /* =========================
-       Responsive
-       ========================= */
-    @media (max-width:900px){
-      main{ padding:80px 24px; }
-    }
-  </style>
+  <title>DAMmix | Build Without Limits</title>
+  <link rel="stylesheet" href="assets/css/style.css"/>
 </head>
-<body>
 
-  <!-- Top Bar -->
+<body>
+<div class="layout">
+
+  <!-- TOPBAR for Hamburger -->
   <div class="topbar">
-    <div>DAMmix</div>
     <div class="hamburger">&#9776;</div>
+    <div class="topbar-title">DAMmix</div>
   </div>
 
-  <!-- Sidebar -->
-  <div class="sidebar">
+  <!-- SIDEBAR -->
+  <aside>
     <div class="brand">
       <img src="assets/image/logo-icon.png" alt="DAMmix Icon">
       <span>DAMMIX</span>
     </div>
     <nav>
       <ul>
-        <li><a href="#brand" class="active">Brand</a></li>
-        <li><a href="#identity">Identity</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#competitors">Competitors</a></li>
-        <li><a href="#stress-test">Stress Test</a></li>
-        <li><a href="#brand-book">Brand Book</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="brand.html">Brand</a></li>
+        <li><a href="identity.html">Identity</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="competitors.html">Competitors</a></li>
+        <li><a href="stress-test.html">Stress Test</a></li>
+        <li><a href="brand-book.html">Brand Book</a></li>
       </ul>
     </nav>
-  </div>
+  </aside>
 
+  <!-- MAIN CONTENT -->
   <main>
-    <!-- Brand Section -->
-    <section id="brand" class="reveal">
-      <h1>Core Brand</h1>
-      <p class="lead">DAMmix – engineered for precision, performance, and resilience in construction chemicals.</p>
-      <div class="media-row">
-        <img src="assets/image/logo-primary.png" alt="Primary Logo">
-        <img src="assets/image/logo-monochrome.png" alt="Monochrome Logo">
-        <img src="assets/image/logo-negative.png" alt="Negative Logo">
-        <img src="assets/image/logo-grid.png" alt="Logo Grid">
-      </div>
-      <div class="media-row">
-        <img src="assets/image/hero-batch-plant.jpg" alt="Hero Batch Plant">
-        <img src="assets/image/hero-mixer-truck.jpg" alt="Hero Mixer Truck">
-        <img src="assets/image/hero-drum.jpg" alt="Hero Drum">
+
+    <!-- Hero Section -->
+    <section class="reveal">
+      <h1>Build Without Limits</h1>
+      <p class="lead">
+        DAMmix is a laboratory-driven construction chemicals brand engineered to overcome material constraints,
+        environmental stress, and structural uncertainty at scale.
+      </p>
+
+      <a class="btn read-more" href="brand.html">Read Full Philosophy →</a>
+
+      <div class="image-strip">
+        <img src="assets/image/hero-batch-plant.jpg" alt="Concrete Batch Plant">
+        <img src="assets/image/hero-mixer-truck.jpg" alt="Concrete Mixer Truck">
+        <img src="assets/image/hero-drum.jpg" alt="Chemical Drum Branding">
       </div>
     </section>
 
-    <!-- Identity Section -->
-    <section id="identity" class="reveal">
-      <h2>Visual Identity</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Logo Symbolism</h3>
-          <div class="expandable" id="logo-symbolism">
-            <p>The check mark represents lab-verified precision; the red line represents limits in construction.</p>
-            <p>It also conveys resilience against unforeseen structural stresses like earthquakes.</p>
-            <p>The minimalist geometric form ensures clarity at any scale.</p>
-          </div>
-          <a href="#" class="btn expand-btn" data-target="logo-symbolism">Read More</a>
-        </div>
-        <div class="card">
-          <h3>Color System</h3>
-          <div class="expandable" id="colors">
-            <p>Primary: #0B0F14 Structural Black</p>
-            <p>Accent: #C1121F Limit Red</p>
-            <p>Secondary: #8A8F98 Technical Gray</p>
-            <p>Neutral: #FFFFFF Engineering White</p>
-          </div>
-          <a href="#" class="btn expand-btn" data-target="colors">Read More</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Products Section -->
-    <section id="products" class="reveal">
-      <h2>Products</h2>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="assets/image/mockup-drum.jpg" alt="Product Drum">
-          <h3>Superplasticizer</h3>
-          <div class="expandable" id="product1">
-            <p>Polycarboxylate-based admixture for high workability and strength optimization.</p>
-            <p>Suitable for precast and ready-mix concrete applications.</p>
-          </div>
-          <a href="#" class="btn expand-btn" data-target="product1">Read More</a>
-        </div>
-        <div class="product-card">
-          <img src="assets/image/mockup-jerrycan.jpg" alt="Product Jerrycan">
-          <h3>Retarder</h3>
-          <div class="expandable" id="product2">
-            <p>Delays hydration under high temperature or long transport durations.</p>
-            <p>Ensures predictable set times in complex projects.</p>
-          </div>
-          <a href="#" class="btn expand-btn" data-target="product2">Read More</a>
-        </div>
-        <div class="product-card">
-          <img src="assets/image/mockup-truck.jpg" alt="Product Truck">
-          <h3>Accelerator</h3>
-          <div class="expandable" id="product3">
-            <p>Rapid strength gain formulation for precast or fast-track construction.</p>
-          </div>
-          <a href="#" class="btn expand-btn" data-target="product3">Read More</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Competitors Section -->
-    <section id="competitors" class="reveal">
-      <h2>Competitor Analysis</h2>
+    <!-- Competitor Mini Preview Section -->
+    <section class="reveal">
+      <h2>Competitor Snapshot</h2>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>Brand</th>
-              <th>Visual Identity</th>
-              <th>Market Focus</th>
-              <th>Positioning Advantage</th>
+              <th>Logo</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><img src="assets/image/competitor-sika.png" class="logo-sm">Sika</td>
-              <td>Strong legacy visual</td>
-              <td>Global construction chemicals</td>
-              <td>DAMmix delivers modern scientific clarity, site-specific relevance.</td>
+              <td>Sika</td>
+              <td><img src="assets/image/competitor-sika.png" class="logo-sm"></td>
             </tr>
             <tr>
-              <td><img src="assets/image/competitor-basf.png" class="logo-sm">BASF (MBCC)</td>
-              <td>Corporate/chemical</td>
-              <td>Industrial chemicals</td>
-              <td>DAMmix is engineered & precise, bridging lab & site use.</td>
+              <td>BASF</td>
+              <td><img src="assets/image/competitor-basf.png" class="logo-sm"></td>
             </tr>
             <tr>
-              <td><img src="assets/image/competitor-mapei.png" class="logo-sm">Mapei</td>
-              <td>Colorful, product-heavy</td>
-              <td>System solutions</td>
-              <td>DAMmix is minimalistic & authoritative, scientifically focused.</td>
+              <td>Fosroc</td>
+              <td><img src="assets/image/competitor-fosroc.png" class="logo-sm"></td>
             </tr>
             <tr>
-              <td><img src="assets/image/competitor-fosroc.png" class="logo-sm">Fosroc</td>
-              <td>Traditional industrial</td>
-              <td>Repair & project chemicals</td>
-              <td>DAMmix communicates process precision and lab verification.</td>
+              <td>Mapei</td>
+              <td><img src="assets/image/competitor-mapei.png" class="logo-sm"></td>
             </tr>
             <tr>
-              <td><img src="assets/image/competitor-mc.png" class="logo-sm">MC Bachume</td>
-              <td>Legacy branding</td>
-              <td>Construction chemicals</td>
-              <td>DAMmix superior modern identity with high legibility & trust cues.</td>
+              <td>MC Bachume</td>
+              <td><img src="assets/image/competitor-mc.png" class="logo-sm"></td>
             </tr>
           </tbody>
         </table>
       </div>
-    </section>
-
-    <!-- Stress Test Section -->
-    <section id="stress-test" class="reveal">
-      <h2>Stress Test Analysis</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Distance Legibility</h3>
-          <div class="meter"><span style="width:96%"></span></div>
-          <p>Readable from 20–50 meters on tanks, drums, and mixer trucks.</p>
-        </div>
-        <div class="card">
-          <h3>Harsh Environment Durability</h3>
-          <div class="meter"><span style="width:94%"></span></div>
-          <p>Maintains color, legibility, and integrity under dust, cement residue, UV, and chemical exposure.</p>
-        </div>
-        <div class="card">
-          <h3>Scale Flexibility</h3>
-          <div class="meter"><span style="width:98%"></span></div>
-          <p>Works on micro labels, bid documents, letterheads, TDS templates, and plant signage.</p>
-        </div>
-        <div class="card">
-          <h3>Monochrome Performance</h3>
-          <div class="meter"><span style="width:95%"></span></div>
-          <p>Retains recognition when printed in black & white, embossing, or laser etching.</p>
-        </div>
-        <div class="card">
-          <h3>Technical Credibility</h3>
-          <div class="meter"><span style="width:97%"></span></div>
-          <p>Lab-tested, scientifically verified, communicates authority in documentation.</p>
-        </div>
-        <div class="card">
-          <h3>Extreme Scenario Simulation</h3>
-          <div class="meter"><span style="width:93%"></span></div>
-          <p>Red line & checkmark design illustrates resilience against site limitations or unforeseen disasters.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Brand Book Section -->
-    <section id="brand-book" class="reveal">
-      <h2>Brand Book</h2>
-      <div class="media-row">
-        <img src="assets/image/mockup-letterhead.jpg" alt="Letterhead">
-        <img src="assets/image/mockup-tds.jpg" alt="TDS Template">
-        <img src="assets/image/mockup-helmet.jpg" alt="Branded Safety Helmet">
-        <img src="assets/image/mockup-truck.jpg" alt="Branded Truck">
-      </div>
-      <a href="assets/image/DAMmix-Brand-Book.pdf" class="btn" target="_blank">Download Brand Book PDF</a>
+      <a href="competitors.html" class="btn">See Full Analysis →</a>
     </section>
 
     <footer>
-      <p><strong>DAMmix Construction Chemicals</strong> · www.dammix.com · info@dammix.com · +251 911 193 605</p>
+      <p>
+        <strong>DAMmix Construction Chemicals</strong><br>
+        www.dammix.com · info@dammix.com · +251 911 193 605
+      </p>
     </footer>
+
   </main>
 
-  <script>
-    // Sidebar toggle
-    const hamburger = document.querySelector('.hamburger');
-    const sidebar = document.querySelector('.sidebar');
-    hamburger.addEventListener('click',()=> sidebar.classList.toggle('active'));
+</div>
 
-    // Scroll reveal
-    const reveals = document.querySelectorAll(".reveal");
-    const revealOnScroll = () => {
-      const windowHeight = window.innerHeight;
-      reveals.forEach(el=>{
-        const top = el.getBoundingClientRect().top;
-        if(top < windowHeight - 100){ el.classList.add("active"); }
-      });
-    };
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-
-    // Expandable content
-    document.querySelectorAll('.expand-btn').forEach(btn=>{
-      btn.addEventListener('click',e=>{
-        e.preventDefault();
-        const target = document.getElementById(btn.dataset.target);
-        target.classList.toggle('expanded');
-        btn.textContent = target.classList.contains('expanded') ? 'Show Less' : 'Read More';
-      });
-    });
-
-    // Animate meters on load
-    window.addEventListener('load',()=>{
-      document.querySelectorAll('.meter span').forEach(span=>{
-        span.style.width = span.style.width || '100%';
-      });
-    });
-  </script>
+<script src="assets/js/main.js"></script>
 </body>
-  </html>
+</html>
