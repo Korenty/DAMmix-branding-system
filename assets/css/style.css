@@ -1,1 +1,349 @@
-vd
+/* =========================
+   DAMmix Global Styles
+   ========================= */
+
+:root {
+  --black: #0b0f14;
+  --red: #c1121f;
+  --gray: #8a8f98;
+  --light-gray: #f3f4f6;
+  --white: #ffffff;
+  --sidebar-width: 260px;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* =========================
+   Layout
+   ========================= */
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+aside {
+  width: var(--sidebar-width);
+  background: var(--black);
+  color: var(--white);
+  padding: 28px 22px;
+  position: fixed;
+  height: 100vh;
+}
+
+main {
+  margin-left: var(--sidebar-width);
+  padding: 60px 70px;
+  width: calc(100% - var(--sidebar-width));
+}
+
+/* =========================
+   Sidebar
+   ========================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.brand img {
+  width: 36px;
+}
+
+.brand span {
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 18px;
+}
+
+nav a {
+  color: var(--gray);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--white);
+}
+
+/* =========================
+   Typography
+   ========================= */
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 2.1rem;
+  margin-bottom: 22px;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #333;
+}
+
+.lead {
+  font-size: 1.15rem;
+  max-width: 720px;
+  color: #444;
+}
+
+.small {
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+/* =========================
+   Sections
+   ========================= */
+
+section {
+  margin-bottom: 90px;
+}
+
+/* =========================
+   Cards & Grids
+   ========================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
+.card {
+  background: var(--light-gray);
+  padding: 28px;
+  border-radius: var(--radius);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   Product Cards
+   ========================= */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 34px;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+  padding: 26px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+/* =========================
+   Media Rows
+   ========================= */
+
+.media-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
+.media-row img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+/* =========================
+   Tables
+   ========================= */
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+th, td {
+  padding: 18px;
+  text-align: left;
+}
+
+thead {
+  background: var(--black);
+  color: var(--white);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--light-gray);
+}
+
+.logo-sm {
+  width: 48px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+/* =========================
+   Stress Test Meters
+   ========================= */
+
+.score {
+  position: relative;
+}
+
+.meter {
+  height: 6px;
+  background: #ddd;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.meter span {
+  display: block;
+  height: 100%;
+  background: var(--red);
+}
+
+/* =========================
+   Color Swatches
+   ========================= */
+
+.color-row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.color-swatch {
+  padding: 20px;
+  border-radius: var(--radius);
+  color: var(--white);
+  min-width: 150px;
+  font-weight: 600;
+}
+
+.color-swatch.gray { background: var(--gray); }
+.color-swatch.red { background: var(--red); }
+.color-swatch.dark { background: var(--black); }
+.color-swatch.white {
+  background: var(--white);
+  color: var(--black);
+  border: 1px solid #ddd;
+}
+
+/* =========================
+   Buttons
+   ========================= */
+
+.btn {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 12px 22px;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--red);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   Footer
+   ========================= */
+
+footer {
+  border-top: 1px solid #e5e5e5;
+  padding-top: 28px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* =========================
+   Reveal Animation
+   ========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 900px) {
+  aside {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  main {
+    margin-left: 0;
+    width: 100%;
+    padding: 40px 24px;
+  }
+  }
