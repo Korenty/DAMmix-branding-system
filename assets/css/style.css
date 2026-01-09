@@ -1,9 +1,9 @@
 /* =========================
-   Global Styles
+   Brand Colors
    ========================= */
 :root {
-  --black: #0b0f14;
-  --red: #c1121f;
+  --navy: #0b1f3f; /* Deep Navy Blue */
+  --red: #c1121f;  /* Industrial Red */
   --gray: #8a8f98;
   --light-gray: #f3f4f6;
   --white: #ffffff;
@@ -11,23 +11,26 @@
   --transition: 0.3s ease;
 }
 
+/* =========================
+   Reset
+   ========================= */
 * { box-sizing:border-box; margin:0; padding:0; }
-html, body { font-family:"Inter","Helvetica Neue",Arial,sans-serif; background: var(--white); color: var(--black); line-height:1.6; scroll-behavior: smooth; }
+html, body { font-family:"Inter","Helvetica Neue",Arial,sans-serif; background: var(--white); color: var(--navy); line-height:1.6; scroll-behavior:smooth; }
 img { max-width:100%; display:block; border-radius:6px; }
 a { text-decoration:none; color: inherit; }
 h1,h2,h3 { margin-bottom:12px; }
-h1 { font-size:2.6rem; }
-h2 { font-size:2rem; margin-top:24px; }
-h3 { font-size:1.2rem; }
-p.lead { font-size:1.1rem; color:#333; margin-bottom:16px; }
+h1 { font-size:2.6rem; color:var(--navy); }
+h2 { font-size:2rem; margin-top:24px; color:var(--navy);}
+h3 { font-size:1.2rem; color:var(--navy);}
+p.lead { font-size:1.1rem; color: #222; margin-bottom:16px; }
 
 /* =========================
    Layout
    ========================= */
 body { overflow-x:hidden; }
 .topbar {
-  position:fixed; top:0; left:0; width:100%; height:60px; background: var(--black);
-  color:var(--white); display:flex; align-items:center; justify-content:space-between;
+  position:fixed; top:0; left:0; width:100%; height:60px; background: var(--navy);
+  color: var(--white); display:flex; align-items:center; justify-content:space-between;
   padding:0 20px; z-index:1002;
 }
 .topbar .hamburger { font-size:1.8rem; cursor:pointer; }
@@ -35,7 +38,7 @@ body { overflow-x:hidden; }
 
 aside {
   position:fixed; top:0; left:-280px; width:280px; height:100vh;
-  background: var(--black); color:var(--white); padding:28px 20px;
+  background: var(--navy); color: var(--white); padding:28px 20px;
   z-index:1003; transition:left 0.3s ease; overflow-y:auto;
 }
 aside.active { left:0; }
@@ -45,9 +48,9 @@ aside .brand span { font-weight:700; letter-spacing:2px; font-size:1.2rem; }
 aside nav ul { list-style:none; }
 aside nav li { margin-bottom:18px; }
 aside nav a { color: var(--gray); font-weight:500; display:block; transition:color 0.3s; }
-aside nav a:hover, aside nav a.active { color: var(--white); }
+aside nav a:hover, aside nav a.active { color: var(--red); }
 
-/* Overlay */
+/* Overlay for mobile */
 #overlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); z-index:1001; }
 #overlay.active { display:block; }
 
@@ -62,8 +65,8 @@ main { margin-top:60px; padding:80px 20px 60px 20px; transition:margin-left 0.3s
 /* =========================
    Buttons
    ========================= */
-.btn { display:inline-block; padding:10px 22px; background: var(--black); color: var(--white); border-radius:40px; font-weight:600; transition: all 0.3s ease; margin-top:10px; }
-.btn:hover { background: var(--red); transform:translateY(-2px); }
+.btn { display:inline-block; padding:10px 22px; background: var(--red); color: var(--white); border-radius:40px; font-weight:600; transition: all 0.3s ease; margin-top:10px; }
+.btn:hover { background: #8a0e17; transform:translateY(-2px); }
 
 /* =========================
    Image Strips / Media Rows
@@ -76,17 +79,17 @@ main { margin-top:60px; padding:80px 20px 60px 20px; transition:margin-left 0.3s
    ========================= */
 .table-wrap { overflow-x:auto; margin-top:24px; }
 table { width:100%; border-collapse:collapse; min-width:800px; }
-th,td { padding:14px 16px; text-align:left; border-bottom:1px solid #ddd; }
-th { background:var(--black); color:var(--white); }
-tbody tr:nth-child(even){ background:var(--light-gray); }
-.logo-sm { width:80px; vertical-align:middle; margin-right:12px; }
+th, td { padding:14px 16px; text-align:left; border-bottom:1px solid #ddd; }
+th { background: var(--navy); color: var(--white); }
+tbody tr:nth-child(even){ background: var(--light-gray); }
+.logo-sm { width:100px; vertical-align:middle; margin-right:12px; }
 
 /* =========================
    Expandable / Read More
    ========================= */
 .expandable { max-height:120px; overflow:hidden; position:relative; transition:max-height 0.5s ease; }
 .expandable.expanded { max-height:2000px; }
-.expandable::after { content:''; position:absolute; bottom:0; left:0; width:100%; height:40px; background: linear-gradient(rgba(243,244,246,0), var(--light-gray)); pointer-events:none; transition: opacity 0.3s; }
+.expandable::after { content:''; position:absolute; bottom:0; left:0; width:100%; height:40px; background: linear-gradient(rgba(255,255,255,0), var(--white)); pointer-events:none; transition: opacity 0.3s; }
 .expandable.expanded::after { opacity:0; }
 
 /* =========================
