@@ -1,13 +1,18 @@
-/* =========================
-   DAMmix Main JS
-   ========================= */
-
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Sidebar toggle
   const hamburger = document.querySelector('.hamburger');
-  const sidebar = document.querySelector('aside');
-  hamburger.addEventListener('click', ()=> sidebar.classList.toggle('active'));
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('overlay');
+  const navLinks = sidebar.querySelectorAll('a');
+
+  // Sidebar toggle
+  const openSidebar = () => { sidebar.classList.add('active'); overlay.classList.add('active'); }
+  const closeSidebar = () => { sidebar.classList.remove('active'); overlay.classList.remove('active'); }
+  hamburger.addEventListener('click', openSidebar);
+  overlay.addEventListener('click', closeSidebar);
+
+  // Close sidebar when link clicked (mobile)
+  navLinks.forEach(link => link.addEventListener('click', closeSidebar));
 
   // Scroll reveal
   const reveals = document.querySelectorAll(".reveal");
@@ -31,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
         target.classList.toggle('expanded');
         btn.textContent = target.classList.contains('expanded') ? 'Show Less' : 'Read More';
       } else {
-        // redirect to page
         window.location.href = btn.getAttribute('href');
       }
     });
